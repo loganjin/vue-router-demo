@@ -6,9 +6,14 @@ import Router from 'vue-router'
 // 1.通过Vue.use(插件)，安装插件
 Vue.use(Router)
 
-import Home from '../components/Home'
-import About from '../components/About'
-import User from '../components/User'
+// import Home from '../components/Home'
+// import About from '../components/About'
+// import User from '../components/User'
+
+// 路由懒加载
+const Home = () => import('../components/Home.vue')
+const About = () => import('../components/About.vue')
+const User = () => import('../components/User.vue')
 
 // 2.创建router对象，MARK: 配置路由和组件之间的应用关系
 const routes = [
