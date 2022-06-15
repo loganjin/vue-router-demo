@@ -15,6 +15,9 @@ const Home = () => import('../components/Home.vue')
 const About = () => import('../components/About.vue')
 const User = () => import('../components/User.vue')
 
+const HomeNews = () => import('../components/HomeNews.vue')
+const HomeMessage = () => import('../components/HomeMessage.vue')
+
 // 2.创建router对象，MARK: 配置路由和组件之间的应用关系
 const routes = [
     // 路由的默认路径
@@ -25,7 +28,22 @@ const routes = [
 
     {
         path:'/home',
-        component: Home
+        component: Home,
+        children: [
+            {
+                path: '/',
+                redirect: 'news'
+            },
+            {
+                // MARK: 子路由不用加/，会自动加上
+                path: 'news',
+                component: HomeNews
+            }, 
+            {
+                path: 'message',
+                component: HomeMessage
+            }
+        ]
     },
     {
         path:'/about',
