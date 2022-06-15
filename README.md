@@ -3,7 +3,8 @@
 > vue-router细节处理  
 > 路由懒加载  
 > 路由嵌套  
-> vue-router参数传递
+> vue-router参数传递  
+> 导航守卫  
 
 # vue-cli2-demo
 

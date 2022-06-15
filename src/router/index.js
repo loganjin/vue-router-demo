@@ -25,7 +25,7 @@ const routes = [
     // 路由的默认路径
     {
         path: '/',
-        redirect: '/home'
+        redirect: '/home',
     },
     {
         path:'/home',
@@ -44,19 +44,31 @@ const routes = [
                 path: 'message',
                 component: HomeMessage
             }
-        ]
+        ],
+        meta: {
+            title: '首页'
+        }
     },
     {
         path:'/about',
-        component: About
+        component: About,
+        meta: {
+            title: '关于'
+        }
     },
     {
         path: '/user/:id',
-        component: User
+        component: User,
+        meta: {
+            title: '用户'
+        }
     },
     {
         path: '/profile',
-        component: Profile
+        component: Profile,
+        meta: {
+            title: '档案'
+        }
     }
 ]
 
@@ -64,6 +76,13 @@ const router = new Router({
     routes,
     // HTML5的history模式
     mode: 'history'
+})
+
+// 利用beforeEach全局导航守卫，修改标题
+router.beforeEach((to, from, next) => {
+    // 如果有嵌套路由的话结果为undefined，需要使用matched匹配获取
+    window.document.title = to.matched[0].meta.title
+    next()
 })
 
 // 3.将router对象挂载（传到）Vue实例中
