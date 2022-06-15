@@ -1,7 +1,9 @@
 # vue-router
-> vue-router基础使用
-> vue-router细节处理
-> 路由懒加载
+> vue-router基础使用    
+> vue-router细节处理  
+> 路由懒加载  
+> 路由嵌套  
+> vue-router参数传递
 
 # vue-cli2-demo
 

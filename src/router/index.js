@@ -6,17 +6,19 @@ import Router from 'vue-router'
 // 1.通过Vue.use(插件)，安装插件
 Vue.use(Router)
 
-// import Home from '../components/Home'
-// import About from '../components/About'
-// import User from '../components/User'
+// import Home from '../components/home'
+// import About from '../components/about'
+// import User from '../components/user'
 
 // 路由懒加载
-const Home = () => import('../components/Home.vue')
-const About = () => import('../components/About.vue')
-const User = () => import('../components/User.vue')
+const Home = () => import('../components/home.vue')
+const About = () => import('../components/about.vue')
+const User = () => import('../components/user.vue')
 
-const HomeNews = () => import('../components/HomeNews.vue')
-const HomeMessage = () => import('../components/HomeMessage.vue')
+const HomeNews = () => import('../components/homeNews.vue')
+const HomeMessage = () => import('../components/homeMessage.vue')
+
+const Profile = () => import('../components/profile.vue')
 
 // 2.创建router对象，MARK: 配置路由和组件之间的应用关系
 const routes = [
@@ -25,7 +27,6 @@ const routes = [
         path: '/',
         redirect: '/home'
     },
-
     {
         path:'/home',
         component: Home,
@@ -50,10 +51,15 @@ const routes = [
         component: About
     },
     {
-        path: '/user/:userId',
+        path: '/user/:id',
         component: User
+    },
+    {
+        path: '/profile',
+        component: Profile
     }
 ]
+
 const router = new Router({
     routes,
     // HTML5的history模式
