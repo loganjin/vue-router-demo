@@ -20,7 +20,14 @@
     <!-- 使用参数方式2：JavaScript代码 -->
     <!-- <button @click="userClick">用户</button> -->
     <!-- <button @click="profileClick">档案</button> -->
-    <router-view></router-view>
+    
+    <!-- <router-view></router-view> -->
+    <!-- keep-alive的使用 -->
+    <!-- 此处为profile.vue、user.vue中的name -->
+    <!-- MARK: 此处逗号之后不要加空格，加了User将不会有exclude效果 -->
+    <keep-alive exclude="Profile,User">
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 

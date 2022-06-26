@@ -5,6 +5,7 @@
 > 路由嵌套  
 > vue-router参数传递  
 > 导航守卫  
+> Keep-alive
 
 # vue-cli2-demo
 

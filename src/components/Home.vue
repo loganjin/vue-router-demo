@@ -10,7 +10,35 @@
 
 <script>
   export default {
-      name: "Home"
+      name: "Home",
+
+      data() {
+        return {
+          message: "Hello",
+          path: '/home/news',
+        };
+      },
+      
+      created() {
+        console.log("home created");
+      },
+      destroyed() {
+        console.log("home destroyed");
+      },
+      // 使用Keep-alive才起作用
+      activated() {
+        this.$router.push(this.path);
+        console.log("activated");
+      },
+      // 使用Keep-alive才起作用
+      deactivated() {
+        console.log("deactivated");
+      },
+      beforeRouteLeave(to, from, next) {
+        console.log(this.$route.path);
+        this.path = this.$route.path;
+        next();
+      },
   }
 </script>
 
